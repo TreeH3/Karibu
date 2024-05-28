@@ -1,0 +1,35 @@
+﻿@model Karibu.Models.Pay
+
+@{
+    ViewData["Title"] = "Ajouter | Pays";
+    ViewData["PageTitle"] = ViewData["Title"];
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdPays" class="form-label"></label>
+                <input asp-for="IdPays" class="form-control" />
+                <span asp-validation-for="IdPays" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NomPays" class="form-label"></label>
+                <input asp-for="NomPays" class="form-control" />
+                <span asp-validation-for="NomPays" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Enregistrer" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Retour à la liste</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

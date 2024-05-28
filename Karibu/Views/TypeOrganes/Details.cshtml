@@ -1,0 +1,21 @@
+﻿@model Karibu.Models.TypeOrgane
+
+@{
+    ViewData["Title"] = "Détails | Type Organe";
+    ViewData["PageTitle"] = ViewData["Title"];
+}
+
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NomType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NomType)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdTypeOrgane">Modifier</a> |
+    <a asp-action="Index">Retour à la liste</a>
+</div>

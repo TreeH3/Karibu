@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Karibu.Models.Demande>
+
+@{
+    ViewData["Title"] = "Demandes Stage";
+    ViewData["PageTitle"] = "Demandes Stage";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Postnom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdNationaliteNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telephone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Promotion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdFilliereNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdUniversiteNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Photo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Postnom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdNationaliteNavigation.IdPays)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telephone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Promotion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdFilliereNavigation.IdFiliere)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.IdUniversiteNavigation.IdUniversite)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdDemande">Modifier</a> |
+                <a asp-action="Details" asp-route-id="@item.IdDemande">Détails</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdDemande">Supprimer</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

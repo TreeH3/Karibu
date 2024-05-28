@@ -1,0 +1,31 @@
+﻿@model Karibu.Models.Commune
+
+@{
+    ViewData["Title"] = "Modifier | Commune";
+    ViewData["PageTitle"] = ViewData["Title"];
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdCommune" />
+            <div class="form-group">
+                <label asp-for="NomCommune" class="form-label"></label>
+                <input asp-for="NomCommune" class="form-control" />
+                <span asp-validation-for="NomCommune" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Enregistrer" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Retour à la liste</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

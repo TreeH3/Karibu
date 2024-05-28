@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Karibu.Models.Universite>
+
+@{
+    ViewData["Title"] = "Universités";
+    ViewData["PageTitle"] = ViewData["Title"];
+}
+
+<p>
+    <a asp-action="Create">Ajouter une Université</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sigle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adresse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomRecteur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdStatutUniversiteNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTypeInstitutNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sigle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adresse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomRecteur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdStatutUniversiteNavigation.IdStatutUniversite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTypeInstitutNavigation.IdTypeInstitut)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdUniversite">Modifier</a> |
+                <a asp-action="Details" asp-route-id="@item.IdUniversite">Détails</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdUniversite">Supprimer</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

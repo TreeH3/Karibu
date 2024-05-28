@@ -1,0 +1,41 @@
+﻿@model Karibu.Models.Organe
+
+@{
+    ViewData["Title"] = "Modifier | Organe";
+    ViewData["PageTitle"] = ViewData["Title"];
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdOrgane" />
+            <div class="form-group">
+                <label asp-for="NomOrgane" class="form-label"></label>
+                <input asp-for="NomOrgane" class="form-control" />
+                <span asp-validation-for="NomOrgane" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdTypeOrgane" class="form-label"></label>
+                <select asp-for="IdTypeOrgane" class="form-control" asp-items="ViewBag.IdTypeOrgane"></select>
+                <span asp-validation-for="IdTypeOrgane" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdOrganeParent" class="form-label"></label>
+                <select asp-for="IdOrganeParent" class="form-control" asp-items="ViewBag.IdOrganeParent"></select>
+                <span asp-validation-for="IdOrganeParent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Enregistrer" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Retour à la liste</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

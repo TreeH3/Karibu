@@ -1,0 +1,22 @@
+﻿@model Karibu.Models.Categorie
+
+@{
+    ViewData["Title"] = "Modifier | Domaine du sujet";
+    ViewData["PageTitle"] = ViewData["Title"];
+}
+
+
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Domaine)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Domaine)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdCategorie">Modifier</a> |
+    <a asp-action="Index">Retour àla liste</a>
+</div>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Karibu.Models.Organe>
+
+@{
+    ViewData["Title"] = "Organes";
+    ViewData["PageTitle"] = ViewData["Title"];
+}
+
+<p>
+    <a asp-action="Create">Ajouter une organe</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomOrgane)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdOrganeParentNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTypeOrganeNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomOrgane)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdOrganeParentNavigation.IdOrgane)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTypeOrganeNavigation.IdTypeOrgane)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdOrgane">Modifier</a> |
+                <a asp-action="Details" asp-route-id="@item.IdOrgane">Détails</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdOrgane">Supprimer</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

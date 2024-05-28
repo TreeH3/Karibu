@@ -1,0 +1,24 @@
+﻿@model Karibu.Models.TypeOrgane
+
+@{
+    ViewData["Title"] = "Supprimer | Type Organe";
+    ViewData["PageTitle"] = ViewData["Title"];
+}
+
+<h3>Etes-vous sûr de vouloir supprimer ceci ?</h3>
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NomType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NomType)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdTypeOrgane" />
+        <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+        <a asp-action="Index">Retour à la liste</a>
+    </form>
+</div>
